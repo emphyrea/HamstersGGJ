@@ -34,6 +34,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public KeyCode sprintKey = KeyCode.LeftShift;
 
     public static event Action OnDeath;
+    public static event Action OnWinning;
     public static event Action DeathState;
 
     // Start is called before the first frame update
@@ -144,7 +145,29 @@ public class ThirdPersonMovement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Fire")
+        {
+            DeathState = BurnDeath;
+            InvokeDeath();
+        }
+
+        //Check for a match with the specific tag on any GameObject that collides with your GameObject
+        if (collision.gameObject.tag == "Electric")
+        {
+            DeathState = ElectricDeath;
+            InvokeDeath();
+        }
+
+        if (collision.gameObject.tag == "Food")
+        {
+            InvokeWin();
+        }
+    }
+
+
+        private void FixedUpdate()
     {
         if (canInput)
         {
@@ -161,7 +184,13 @@ public class ThirdPersonMovement : MonoBehaviour
         DeathState?.Invoke();
     }
 
-    public void StopTime()
+    public void InvokeWin()
+    {
+        SetCanInput(false);
+        OnWinning?.Invoke();
+    }
+
+    public void StopTime() //ANIM EVENT
     {
         Time.timeScale = 0;
     }
@@ -170,6 +199,28 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         animator.SetTrigger("fallDeath");
 
+    }
+
+    public void BurnDeath()
+    {
+        animator.SetTrigger("burnDeath");
+    }
+
+    public void ElectricDeath()
+    {
+        animator.SetTrigger("electricDeath");
+
+    }
+
+    public void Drown()
+    {
+        DeathState = DrownDeath;
+        InvokeDeath();
+    }
+
+    public void DrownDeath()
+    {
+        animator.SetTrigger("drownDeath");
     }
 
 }

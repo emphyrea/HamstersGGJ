@@ -14,11 +14,17 @@ public class WinScreen : MonoBehaviour
         winPanel.SetActive(false);
     }
 
+    private void OnEnable()
+    {
+        ThirdPersonMovement.OnWinning += OnWin;
+    }
+
     public void OnWin()
     {
         winPanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
