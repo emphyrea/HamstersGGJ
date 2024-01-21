@@ -12,10 +12,12 @@ public class ThirdPersonMovement : MonoBehaviour
     bool isGrounded;
     public float groundDrag = 5f;
 
-    public float jumpForce = 20f;
+    public float jumpForce = 0.5f;
     public float jumpCooldown = 0.25f;
-    public float airMultiplier = 0.2f;
+    public float airMultiplier = 0.1f;
     bool canJump = true;
+
+    [SerializeField] float fallThresholdVelocity = 5f;
 
     bool canInput = true;
 
@@ -33,7 +35,7 @@ public class ThirdPersonMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
     }
@@ -89,7 +91,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void Jump()
     {
-        //animator.SetBool("jump", true);
+        animator.SetBool("jump", true);
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
@@ -103,16 +105,22 @@ public class ThirdPersonMovement : MonoBehaviour
     private void UpdateAnimation()
     {
         float forwardSpeed = Vector3.Magnitude(rb.velocity);
-       // animator.SetFloat("speed", forwardSpeed);
+        animator.SetFloat("speed", forwardSpeed);
     }
 
     // Update is called once per frame
     void Update()
     {
+        bool previousGrounded = isGrounded;
+
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundMask);
         if (canInput)
         {
             PlayerInput();
+        }
+        if(previousGrounded && isGrounded)
+        {
+            Debug.Log("damage: " + (rb.velocity.y < -fallThresholdVelocity));
         }
 
         if (isGrounded)
