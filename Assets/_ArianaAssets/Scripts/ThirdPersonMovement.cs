@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,9 +33,14 @@ public class ThirdPersonMovement : MonoBehaviour
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
 
+    public static event Action OnDeath;
+    public static event Action DeathState;
+
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
+        canInput = true;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -120,7 +126,12 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         if(previousGrounded && isGrounded)
         {
-            Debug.Log("damage: " + (rb.velocity.y < -fallThresholdVelocity));
+            if(rb.velocity.y < -fallThresholdVelocity)
+            {
+                Debug.Log("death");
+                DeathState = FallDeath;
+                InvokeDeath();
+            }    
         }
 
         if (isGrounded)
@@ -142,4 +153,23 @@ public class ThirdPersonMovement : MonoBehaviour
             UpdateAnimation();
         }
     }
+
+    public void InvokeDeath()
+    {
+        SetCanInput(false);
+        OnDeath?.Invoke();
+        DeathState?.Invoke();
+    }
+
+    public void StopTime()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void FallDeath()
+    {
+        animator.SetTrigger("fallDeath");
+
+    }
+
 }
