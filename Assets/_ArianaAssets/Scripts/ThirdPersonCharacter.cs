@@ -44,6 +44,8 @@ public class ThirdPersonCharacter : MonoBehaviour
     public static event Action OnWinning;
     public static event Action DeathState;
 
+    AudioSource deathSqueak;
+
     private void OnEnable()
     {
         Timer.OnTimeEnd += Starve;
@@ -53,6 +55,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+        deathSqueak = GetComponent<AudioSource>();
 
         RandomizeSkin();
 
@@ -197,6 +200,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         SetCanInput(false);
         OnDeath?.Invoke();
         DeathState?.Invoke();
+        deathSqueak.Play();
     }
 
     public void InvokeWin()
