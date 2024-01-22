@@ -155,6 +155,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     {
         animator.SetBool("jump", true);
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
@@ -179,9 +180,10 @@ public class ThirdPersonCharacter : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        if (!canRoll && isGrounded)
+        if (isGrounded)
         {   
             float forwardSpeed = Vector3.Magnitude(rb.velocity);
+            Debug.Log(forwardSpeed + "forwardspeed");
             animator.SetFloat("speed", forwardSpeed);
         }
         if (!isGrounded && rb.velocity.y < 0f)
