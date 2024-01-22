@@ -13,6 +13,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     bool isGrounded;
     public float groundDrag = 5f;
 
+    [Header("Jumping")]
     public float jumpForce = 0.5f;
     public float jumpCooldown = 0.25f;
     public float airMultiplier = 0.1f;
@@ -33,6 +34,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
 
+    [Header("Skins")]
     [SerializeField] List<Material> skinList;
     Material hamsterSkinMat;
     [SerializeField] SkinnedMeshRenderer furMeshRenderer;
@@ -41,6 +43,11 @@ public class ThirdPersonCharacter : MonoBehaviour
     public static event Action OnDeath;
     public static event Action OnWinning;
     public static event Action DeathState;
+
+    private void OnEnable()
+    {
+        Timer.OnTimeEnd += Starve;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -202,7 +209,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     {
         Time.timeScale = 0;
     }
-
+    #region Deaths
     public void FallDeath()
     {
         animator.SetTrigger("fallDeath");
@@ -231,6 +238,17 @@ public class ThirdPersonCharacter : MonoBehaviour
         animator.SetTrigger("drownDeath");
     }
 
+    public void Starve()
+    {
+        DeathState = StarveDeath;
+        InvokeDeath();
+    }
+
+    public void StarveDeath()
+    {
+        animator.SetTrigger("starveDeath");
+    }
+#endregion
     public void RandomizeSkin()
     {
         int randomNumber = UnityEngine.Random.Range(0, skinList.Count);
