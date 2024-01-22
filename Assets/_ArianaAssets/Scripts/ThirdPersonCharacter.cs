@@ -44,7 +44,11 @@ public class ThirdPersonCharacter : MonoBehaviour
     public static event Action OnWinning;
     public static event Action DeathState;
 
-    AudioSource deathSqueak;
+    AudioSource audioSource;
+
+    [SerializeField]GameObject fireParticle;
+    [SerializeField]GameObject electricityParticle;
+    [SerializeField]GameObject bubbleParticle;
 
     private void OnEnable()
     {
@@ -55,9 +59,13 @@ public class ThirdPersonCharacter : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-        deathSqueak = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
         RandomizeSkin();
+
+        fireParticle.SetActive(false);
+        electricityParticle.SetActive(false);
+        bubbleParticle.SetActive(false);
 
         canInput = true;
         animator = GetComponent<Animator>();
@@ -200,7 +208,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         SetCanInput(false);
         OnDeath?.Invoke();
         DeathState?.Invoke();
-        deathSqueak.Play();
+        audioSource.Play();
     }
 
     public void InvokeWin()
@@ -223,12 +231,13 @@ public class ThirdPersonCharacter : MonoBehaviour
     public void BurnDeath()
     {
         animator.SetTrigger("burnDeath");
+        fireParticle.SetActive(true);
     }
 
     public void ElectricDeath()
     {
         animator.SetTrigger("electricDeath");
-
+        electricityParticle.SetActive(true);
     }
 
     public void Drown()
@@ -240,6 +249,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     public void DrownDeath()
     {
         animator.SetTrigger("drownDeath");
+        bubbleParticle.SetActive(true);
     }
 
     public void Starve()
