@@ -64,6 +64,11 @@ public class ThirdPersonCharacter : MonoBehaviour
         Timer.OnTimeEnd += Starve;
     }
 
+    private void OnDisable()
+    {
+        Timer.OnTimeEnd -= Starve;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

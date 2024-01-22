@@ -18,6 +18,11 @@ public class DeathScreen : MonoBehaviour
         ThirdPersonCharacter.OnDeath += OnDeathScreen;
     }
 
+    private void OnDisable()
+    {
+        ThirdPersonCharacter.OnDeath -= OnDeathScreen;
+    }
+
     public void OnDeathScreen()
     {
         deathPanel.SetActive(true);
