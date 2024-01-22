@@ -4,26 +4,45 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.Playables;
 
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float countdown = 300;
     public static event Action OnTimeEnd;
+    [SerializeField] bool isRunning = false;
 
-    void Update()
+    private void Start()
     {
-        if (countdown > 0)
-        {
-            countdown -= Time.deltaTime;
-        }
-        else
-        {
-            countdown = 0;
-            OnTimeEnd?.Invoke();
-        }
         float min = Mathf.FloorToInt(countdown / 60);
         float sec = Mathf.FloorToInt(countdown % 60);
         timerText.text = string.Format("{0,00}:{1,00}", min, sec);
     }
+
+    void Update()
+    {
+        if(isRunning)
+        {
+            if (countdown > 0)
+            {
+                countdown -= Time.deltaTime;
+            }
+            else
+            {
+                countdown = 0;
+                OnTimeEnd?.Invoke();
+            }
+            float min = Mathf.FloorToInt(countdown / 60);
+            float sec = Mathf.FloorToInt(countdown % 60);
+            timerText.text = string.Format("{0,00}:{1,00}", min, sec);
+        }
+
+    }
+
+    public void SetRunning(bool set)
+    {
+        isRunning = set;
+    }
+
 }

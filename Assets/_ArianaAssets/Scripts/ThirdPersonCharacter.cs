@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class ThirdPersonCharacter : MonoBehaviour
 {
@@ -82,7 +83,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         bubbleParticle.SetActive(false);
 
         canRoll = false;
-        canInput = true;
+        canInput = false;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -329,6 +330,5 @@ public class ThirdPersonCharacter : MonoBehaviour
         furMeshRenderer.material = hamsterSkinMat;
         eyeMeshRenderer.material = hamsterSkinMat;
     }
-
 
 }
