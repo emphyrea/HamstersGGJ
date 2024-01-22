@@ -19,6 +19,14 @@ public class ThirdPersonCharacter : MonoBehaviour
     public float airMultiplier = 0.1f;
     bool canJump = true;
 
+    [Header("Rolling")]
+    private bool canRoll = false;
+    public float rollSpeed = 20f;
+    public float rollDuration = 0.3f;
+    private float rollTime = 0f;
+    private Vector3 rollDirection;
+    public float rollCooldown = 0.25f;
+
     [SerializeField] float fallThresholdVelocity = 5f;
 
     bool canInput = true;
@@ -33,6 +41,7 @@ public class ThirdPersonCharacter : MonoBehaviour
 
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
+    public KeyCode rollKey = KeyCode.LeftControl;
 
     [Header("Skins")]
     [SerializeField] List<Material> skinList;
@@ -67,6 +76,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         electricityParticle.SetActive(false);
         bubbleParticle.SetActive(false);
 
+        canRoll = false;
         canInput = true;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
@@ -77,6 +87,25 @@ public class ThirdPersonCharacter : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+        if(canRoll && Input.GetKeyDown(rollKey))
+        {
+            Roll();
+        }
+        if(!canRoll && isGrounded)
+        {
+            rollTime += Time.deltaTime;
+            float rollProgress = rollTime / Time.deltaTime;
+
+
+            rb.AddForce(rollDirection * rollSpeed, ForceMode.Force);
+
+
+            if (rollTime >= rollDuration && isGrounded)
+            {
+                Invoke(nameof(ResetRoll), rollCooldown);
+            }
+
+        }
         if (Input.GetKeyDown(jumpKey) && canJump && isGrounded)
         {
             canJump = false;
@@ -135,10 +164,27 @@ public class ThirdPersonCharacter : MonoBehaviour
         canJump = true;
     }
 
+    private void Roll()
+    {
+        canRoll = false;
+        animator.SetTrigger("roll");
+        rollTime = 0f;
+        rollDirection = orient.forward;
+    }
+
+    private void ResetRoll()
+    {
+        canRoll = true;
+    }
+
     private void UpdateAnimation()
     {
-        float forwardSpeed = Vector3.Magnitude(rb.velocity);
-        animator.SetFloat("speed", forwardSpeed);
+        if(!canRoll && isGrounded)
+        {
+            float forwardSpeed = Vector3.Magnitude(rb.velocity);
+            animator.SetFloat("speed", forwardSpeed);
+        }
+
     }
 
     // Update is called once per frame
