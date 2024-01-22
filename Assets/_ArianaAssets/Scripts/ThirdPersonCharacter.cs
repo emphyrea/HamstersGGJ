@@ -91,7 +91,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         {
             Roll();
         }
-        if(!canRoll && isGrounded)
+        if(!canRoll)
         {
             rollTime += Time.deltaTime;
             float rollProgress = rollTime / Time.deltaTime;
@@ -179,10 +179,14 @@ public class ThirdPersonCharacter : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        if(!canRoll && isGrounded)
-        {
+        if (!canRoll && isGrounded)
+        {   
             float forwardSpeed = Vector3.Magnitude(rb.velocity);
             animator.SetFloat("speed", forwardSpeed);
+        }
+        if (!isGrounded && rb.velocity.y < 0f)
+        {
+            animator.SetBool("fall", true);
         }
 
     }
@@ -197,6 +201,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         {
             PlayerInput();
         }
+
         if(previousGrounded && isGrounded)
         {
             if(rb.velocity.y < -fallThresholdVelocity)
@@ -210,6 +215,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         if (isGrounded)
         {
             rb.drag = groundDrag;
+            animator.SetBool("fall", false);
         }
         else
         {
