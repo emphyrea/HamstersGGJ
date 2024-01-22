@@ -20,6 +20,17 @@ public class Timer : MonoBehaviour
         timerText.text = string.Format("{0,00}:{1,00}", min, sec);
     }
 
+    private void OnEnable()
+    {
+        CinematicTracker.OnCinematicFinish += _ => SetRunning(false);
+    }
+
+    private void OnDisable()
+    {
+        CinematicTracker.OnCinematicFinish -= _ => SetRunning(false);
+    }
+
+
     void Update()
     {
         if(isRunning)

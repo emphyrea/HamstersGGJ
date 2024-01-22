@@ -22,12 +22,22 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void OnEnable()
     {
-       ThirdPersonCharacter.OnDeath += IsDead;
+        CinematicTracker.OnCinematicFinish += _ => SetCanRotate(false);
+        ThirdPersonCharacter.OnDeath += IsDead;
+    }
+    private void OnDisable()
+    {
+        CinematicTracker.OnCinematicFinish += _ => SetCanRotate(false);
+        ThirdPersonCharacter.OnDeath -= IsDead;
     }
 
     public void IsDead()
     {
         canRotate = false;
+    }
+    public void SetCanRotate(bool set)
+    {
+        canRotate = set;
     }
 
     // Update is called once per frame

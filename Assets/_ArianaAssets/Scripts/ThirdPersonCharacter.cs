@@ -60,13 +60,35 @@ public class ThirdPersonCharacter : MonoBehaviour
     [SerializeField]GameObject electricityParticle;
     [SerializeField]GameObject bubbleParticle;
 
+    [SerializeField] int deathCount = 0;
+    public void SaveTimesDied()
+    {
+        this.deathCount++;
+        PlayerPrefs.SetInt("Died", deathCount);
+        PlayerPrefs.Save();
+        Debug.Log("Times died saved!");
+        Debug.Log(PlayerPrefs.GetInt("Died"));
+    }
+    public void ResetTimesDied()
+    {
+        this.deathCount = 0;
+        PlayerPrefs.SetInt("Died", deathCount);
+        PlayerPrefs.Save();
+        Debug.Log("Times died saved!");
+        Debug.Log(PlayerPrefs.GetInt("Died"));
+    }
+
     private void OnEnable()
     {
+        CinematicTracker.OnCinematicFinish += _ => SetCanInput(false);
+        WinScreen.OnWinDeathReset += ResetTimesDied;
         Timer.OnTimeEnd += Starve;
     }
 
     private void OnDisable()
     {
+        CinematicTracker.OnCinematicFinish -= _ => SetCanInput(false);
+        WinScreen.OnWinDeathReset -= ResetTimesDied;
         Timer.OnTimeEnd -= Starve;
     }
 
@@ -83,7 +105,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         bubbleParticle.SetActive(false);
 
         canRoll = false;
-        canInput = false;
+        //canInput = false;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -189,7 +211,6 @@ public class ThirdPersonCharacter : MonoBehaviour
         if (isGrounded)
         {   
             float forwardSpeed = Vector3.Magnitude(rb.velocity);
-            Debug.Log(forwardSpeed + "forwardspeed");
             animator.SetFloat("speed", forwardSpeed);
         }
         if (!isGrounded && rb.velocity.y < 0f)
@@ -253,7 +274,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     }
 
 
-        private void FixedUpdate()
+    private void FixedUpdate()
     {
         if (canInput)
         {
@@ -269,6 +290,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         OnDeath?.Invoke();
         DeathState?.Invoke();
         audioSource.Play();
+        SaveTimesDied();
     }
 
     public void InvokeWin()
