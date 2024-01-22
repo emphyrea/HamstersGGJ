@@ -838,7 +838,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330954349}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5257311, y: -0.000000014636621, z: 0.000000009045928, w: 0.85065085}
+  m_LocalRotation: {x: 0.5257311, y: 0.000000014636621, z: -0.000000009045928, w: 0.85065085}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1252,6 +1252,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!137 &466550659 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3807195052837979625, guid: 0aebcfffbc5bb9245875e77c91c2fc85, type: 3}
+  m_PrefabInstance: {fileID: 1397026969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &515928075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,6 +2074,7 @@ GameObject:
   - component: {fileID: 814021500}
   - component: {fileID: 814021499}
   - component: {fileID: 814021498}
+  - component: {fileID: 814021501}
   m_Layer: 4
   m_Name: Cube (5)
   m_TagString: Water
@@ -2085,7 +2091,7 @@ Transform:
   m_GameObject: {fileID: 814021496}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.82, y: 17.51, z: 4.13}
+  m_LocalPosition: {x: 22.82, y: 18.12, z: 4.13}
   m_LocalScale: {x: 9.648071, y: 0.6948781, z: 16.268291}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2106,7 +2112,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2162,6 +2168,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814021496}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &814021501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814021496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb13684468b5a1a4aa3d4f20e27c5a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &881972776
 GameObject:
   m_ObjectHideFlags: 0
@@ -4058,7 +4076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397498163}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5057713, y: -0.000000014843386, z: 0.000000008702493, w: 0.8626676}
+  m_LocalRotation: {x: 0.5057713, y: 0.000000014843392, z: -0.0000000087024965, w: 0.8626676}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4119,7 +4137,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.9, y: 1, z: 0.9}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1435875798
 MeshRenderer:
@@ -5602,7 +5620,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000600237}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.52573115, y: -0.000000029273243, z: 0.00000001809186, w: 0.85065085}
+  m_LocalRotation: {x: 0.52573115, y: 0.000000029273243, z: -0.00000001809186, w: 0.85065085}
   m_LocalPosition: {x: 36.4, y: 41.4, z: -44.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5696,7 +5714,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.9, y: 1, z: 0.9}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2005975814
 MeshRenderer:
@@ -6019,6 +6037,12 @@ MonoBehaviour:
   orient: {fileID: 804655269}
   jumpKey: 32
   sprintKey: 304
+  skinList:
+  - {fileID: -7791486788655378091, guid: 5b43c8908cb29cf419c5b7bdd1c41027, type: 3}
+  - {fileID: 2100000, guid: 29934145c68046948aa91838ca328bc4, type: 2}
+  - {fileID: 2100000, guid: 4dd76f41100a98d448269f35c3f6891f, type: 2}
+  furMeshRenderer: {fileID: 2072839143}
+  eyeMeshRenderer: {fileID: 466550659}
 --- !u!54 &2056542513
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6158,6 +6182,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1459260473}
   m_SourcePrefab: {fileID: 100100000, guid: 111486452a63981469532b25527836ee, type: 3}
+--- !u!137 &2072839143 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2557448999436285023, guid: 0aebcfffbc5bb9245875e77c91c2fc85, type: 3}
+  m_PrefabInstance: {fileID: 1397026969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2116182349
 PrefabInstance:
   m_ObjectHideFlags: 0

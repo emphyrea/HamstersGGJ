@@ -16,7 +16,7 @@ public class WinScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        ThirdPersonMovement.OnWinning += OnWin;
+        ThirdPersonCharacter.OnWinning += OnWin;
     }
 
     public void OnWin()

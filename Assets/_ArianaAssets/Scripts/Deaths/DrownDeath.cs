@@ -8,7 +8,7 @@ public class DrownDeath : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            ThirdPersonMovement playerScript = other.GetComponent<ThirdPersonMovement>();
+            ThirdPersonCharacter playerScript = other.GetComponent<ThirdPersonCharacter>();
             playerScript.Drown();
         }
     }

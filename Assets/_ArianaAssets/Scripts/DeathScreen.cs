@@ -15,7 +15,7 @@ public class DeathScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        ThirdPersonMovement.OnDeath += OnDeathScreen;
+        ThirdPersonCharacter.OnDeath += OnDeathScreen;
     }
 
     public void OnDeathScreen()

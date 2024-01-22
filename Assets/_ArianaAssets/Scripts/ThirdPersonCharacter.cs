@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThirdPersonMovement : MonoBehaviour
+public class ThirdPersonCharacter : MonoBehaviour
 {
     public float moveSpeed = 7f;
     Vector3 limitedVelocity;
@@ -33,6 +33,11 @@ public class ThirdPersonMovement : MonoBehaviour
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
 
+    [SerializeField] List<Material> skinList;
+    Material hamsterSkinMat;
+    [SerializeField] SkinnedMeshRenderer furMeshRenderer;
+    [SerializeField] SkinnedMeshRenderer eyeMeshRenderer;
+
     public static event Action OnDeath;
     public static event Action OnWinning;
     public static event Action DeathState;
@@ -41,6 +46,9 @@ public class ThirdPersonMovement : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+
+        RandomizeSkin();
+
         canInput = true;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
@@ -222,5 +230,14 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         animator.SetTrigger("drownDeath");
     }
+
+    public void RandomizeSkin()
+    {
+        int randomNumber = UnityEngine.Random.Range(0, skinList.Count);
+        hamsterSkinMat = skinList[randomNumber];
+        furMeshRenderer.material = hamsterSkinMat;
+        eyeMeshRenderer.material = hamsterSkinMat;
+    }
+
 
 }
