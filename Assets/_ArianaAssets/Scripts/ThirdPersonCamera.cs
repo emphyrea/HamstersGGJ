@@ -10,12 +10,11 @@ public class ThirdPersonCamera : MonoBehaviour
     [SerializeField] Rigidbody rb;
 
     public float rotSpeed = 7f;
-    bool canRotate = true;
+    bool canRotate;
 
     // Start is called before the first frame update
     void Start()
     {
-        canRotate = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -33,17 +32,22 @@ public class ThirdPersonCamera : MonoBehaviour
 
     public void IsDead()
     {
-        canRotate = false;
+       this.canRotate = false;
     }
     public void SetCanRotate(bool set)
     {
-        canRotate = set;
+        this.canRotate = set;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(canRotate)
+        MoveCamera();
+    }
+
+    public void MoveCamera()
+    {
+        if (canRotate)
         {
             Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
             orient.forward = viewDir.normalized;
@@ -58,6 +62,5 @@ public class ThirdPersonCamera : MonoBehaviour
                 playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotSpeed);
             }
         }
-   
     }
 }
