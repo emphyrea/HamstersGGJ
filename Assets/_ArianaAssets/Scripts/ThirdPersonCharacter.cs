@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -50,6 +51,8 @@ public class ThirdPersonCharacter : MonoBehaviour
     [SerializeField] SkinnedMeshRenderer furMeshRenderer;
     [SerializeField] SkinnedMeshRenderer eyeMeshRenderer;
 
+    [SerializeField] List<AnimatorOverrideController> animationOverrideControllers;
+
     public static event Action OnDeath;
     public static event Action OnWinning;
     public static event Action DeathState;
@@ -93,10 +96,12 @@ public class ThirdPersonCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         Time.timeScale = 1f;
         audioSource = GetComponent<AudioSource>();
 
         RandomizeSkin();
+
 
         fireParticle.SetActive(false);
         electricityParticle.SetActive(false);
@@ -106,6 +111,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        RandomizeAnimations();
     }
 
     private void PlayerInput()
@@ -347,6 +353,12 @@ public class ThirdPersonCharacter : MonoBehaviour
         hamsterSkinMat = skinList[randomNumber];
         furMeshRenderer.material = hamsterSkinMat;
         eyeMeshRenderer.material = hamsterSkinMat;
+    }
+
+    public void RandomizeAnimations()
+    {
+        int randomNumber = UnityEngine.Random.Range(0, animationOverrideControllers.Count);
+        animator.runtimeAnimatorController = animationOverrideControllers[randomNumber];
     }
 
 }
