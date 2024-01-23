@@ -80,14 +80,14 @@ public class ThirdPersonCharacter : MonoBehaviour
 
     private void OnEnable()
     {
-        CinematicTracker.OnCinematicFinish += _ => SetCanInput(false);
+        CinematicTracker.OnCinematicFinish += _ => SetCanInput(true);
         WinScreen.OnWinDeathReset += ResetTimesDied;
         Timer.OnTimeEnd += Starve;
     }
 
     private void OnDisable()
     {
-        CinematicTracker.OnCinematicFinish -= _ => SetCanInput(false);
+        CinematicTracker.OnCinematicFinish -= _ => SetCanInput(true);
         WinScreen.OnWinDeathReset -= ResetTimesDied;
         Timer.OnTimeEnd -= Starve;
     }
@@ -105,7 +105,6 @@ public class ThirdPersonCharacter : MonoBehaviour
         bubbleParticle.SetActive(false);
 
         canRoll = false;
-        //canInput = false;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;

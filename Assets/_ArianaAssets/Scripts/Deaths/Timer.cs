@@ -22,12 +22,12 @@ public class Timer : MonoBehaviour
 
     private void OnEnable()
     {
-        CinematicTracker.OnCinematicFinish += _ => SetRunning(false);
+        CinematicTracker.OnCinematicFinish += _ => SetRunning(true);
     }
 
     private void OnDisable()
     {
-        CinematicTracker.OnCinematicFinish -= _ => SetRunning(false);
+        CinematicTracker.OnCinematicFinish -= _ => SetRunning(true);
     }
 
 

@@ -15,19 +15,19 @@ public class ThirdPersonCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canRotate = true;
+        canRotate = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     private void OnEnable()
     {
-        CinematicTracker.OnCinematicFinish += _ => SetCanRotate(false);
+        CinematicTracker.OnCinematicFinish += _ => SetCanRotate(true);
         ThirdPersonCharacter.OnDeath += IsDead;
     }
     private void OnDisable()
     {
-        CinematicTracker.OnCinematicFinish += _ => SetCanRotate(false);
+        CinematicTracker.OnCinematicFinish += _ => SetCanRotate(true);
         ThirdPersonCharacter.OnDeath -= IsDead;
     }
 

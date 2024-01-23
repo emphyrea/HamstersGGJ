@@ -9,7 +9,7 @@ public class WinScreen : MonoBehaviour
 {
     [SerializeField] GameObject winPanel;
 
-    public static event Action OnWinCinematicReset;
+    //public static event Action OnWinCinematicReset;
     public static event Action OnWinDeathReset;
 
     // Start is called before the first frame update
