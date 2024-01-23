@@ -45,7 +45,6 @@ public class CinematicTracker : MonoBehaviour
         {
             timeline.Stop();
             OnCinematicFinish?.Invoke(true);
-            Debug.Log("died, invoke");
         }
         else if(PlayerPrefs.GetInt("Died") <= 0)
         {

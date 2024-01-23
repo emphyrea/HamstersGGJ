@@ -66,16 +66,14 @@ public class ThirdPersonCharacter : MonoBehaviour
         this.deathCount++;
         PlayerPrefs.SetInt("Died", deathCount);
         PlayerPrefs.Save();
-        Debug.Log("Times died saved!");
-        Debug.Log(PlayerPrefs.GetInt("Died"));
+
     }
     public void ResetTimesDied()
     {
         this.deathCount = 0;
         PlayerPrefs.SetInt("Died", deathCount);
         PlayerPrefs.Save();
-        Debug.Log("Times died saved!");
-        Debug.Log(PlayerPrefs.GetInt("Died"));
+
     }
 
     private void OnEnable()
