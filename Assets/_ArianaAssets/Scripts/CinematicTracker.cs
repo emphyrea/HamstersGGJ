@@ -7,36 +7,10 @@ using UnityEngine.Timeline;
 
 public class CinematicTracker : MonoBehaviour
 {
-    //[SerializeField] int timesPlayedCinematic = 0;
+
     [SerializeField] PlayableDirector timeline;
-  /*  public void SaveTimesCinematicPlayed()
-    {
-        this.timesPlayedCinematic++;
-        PlayerPrefs.SetInt("Played",timesPlayedCinematic);
-        PlayerPrefs.Save();
-        Debug.Log("Times played saved!");
-        Debug.Log(PlayerPrefs.GetInt("Played"));
-    }
-    public void ResetTimesCinematicPlayed()
-    {
-        this.timesPlayedCinematic = 0;
-        PlayerPrefs.SetInt("Played", timesPlayedCinematic);
-        PlayerPrefs.Save();
-        Debug.Log("Times played saved!");
-        Debug.Log(PlayerPrefs.GetInt("Played"));
-    }*/
 
     public static Action<bool> OnCinematicFinish;
-
-
-    /*private void OnEnable()
-    {
-        WinScreen.OnWinCinematicReset += ResetTimesCinematicPlayed;
-    }
-    private void OnDisable()
-    {
-        WinScreen.OnWinCinematicReset -= ResetTimesCinematicPlayed;
-    }*/
 
     private void Start()
     {

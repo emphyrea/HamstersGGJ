@@ -27,7 +27,7 @@ public class ThirdPersonCamera : MonoBehaviour
     }
     private void OnDisable()
     {
-        CinematicTracker.OnCinematicFinish += _ => SetCanRotate(true);
+        CinematicTracker.OnCinematicFinish -= _ => SetCanRotate(true);
         ThirdPersonCharacter.OnDeath -= IsDead;
     }
 
