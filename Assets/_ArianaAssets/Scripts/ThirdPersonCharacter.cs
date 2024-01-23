@@ -232,7 +232,6 @@ public class ThirdPersonCharacter : MonoBehaviour
         {
             if(rb.velocity.y < -fallThresholdVelocity)
             {
-                Debug.Log("death");
                 DeathState = FallDeath;
                 InvokeDeath();
             }    
