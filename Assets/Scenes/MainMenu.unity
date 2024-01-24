@@ -1031,7 +1031,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "CREDITS:\n\n                       Ariana Tierman\n\t\t\n\t\t   Janiah
     Thomas, Samserai Lopez, Walker Smalls, Alexa Munoz\t\t\t    \n\t\t    Diago Torres, 
-    Allison Maldonado, Cassandra Rebolloso Hanson"
+    Allison Maldonado, Cassandra Rebolloso Hanson\n\n\t\t    Allison Maldonado"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2284,7 +2284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\nProgramming - \n\n3D Models - \n\n\nAnimations - \n"
+  m_text: "\n\nProgramming - \n\n3D Models - \n\n\nAnimations - \n\n\n\nIllustrations-"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
