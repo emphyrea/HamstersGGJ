@@ -63,6 +63,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     [SerializeField]GameObject electricityParticle;
     [SerializeField]GameObject bubbleParticle;
     [SerializeField]GameObject bloodParticle;
+    [SerializeField]GameObject explosionParticle;
 
     [SerializeField] int deathCount = 0;
     public void SaveTimesDied()
@@ -350,6 +351,18 @@ public class ThirdPersonCharacter : MonoBehaviour
             animator.SetTrigger("cutDeath");
             bloodParticle.SetActive(true);
         }
+    }
+
+    public void Explode()
+    {
+        DeathState = ExplodeDeath;
+        InvokeDeath();
+    }
+
+    public void ExplodeDeath()
+    {
+        animator.SetTrigger("burnDeath"); //change?
+        explosionParticle.SetActive(true);
     }
 
 
