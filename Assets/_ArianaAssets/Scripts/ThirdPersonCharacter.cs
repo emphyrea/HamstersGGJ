@@ -62,6 +62,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     [SerializeField]GameObject fireParticle;
     [SerializeField]GameObject electricityParticle;
     [SerializeField]GameObject bubbleParticle;
+    [SerializeField]GameObject bloodParticle;
 
     [SerializeField] int deathCount = 0;
     public void SaveTimesDied()
@@ -336,6 +337,22 @@ public class ThirdPersonCharacter : MonoBehaviour
         bubbleParticle.SetActive(true);
     }
 
+    internal void Cut()
+    {
+        DeathState = CutDeath;
+        InvokeDeath();
+    }
+
+    public void CutDeath()
+    {
+        if(bloodParticle != null)
+        {
+            animator.SetTrigger("cutDeath");
+            bloodParticle.SetActive(true);
+        }
+    }
+
+
     public void Starve()
     {
         DeathState = StarveDeath;
@@ -360,5 +377,6 @@ public class ThirdPersonCharacter : MonoBehaviour
         int randomNumber = UnityEngine.Random.Range(0, animationOverrideControllers.Count);
         animator.runtimeAnimatorController = animationOverrideControllers[randomNumber];
     }
+
 
 }

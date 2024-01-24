@@ -28,7 +28,7 @@ public class SwingingKnife : MonoBehaviour
         if (other.tag == "Player")
         {
             ThirdPersonCharacter playerScript = other.GetComponent<ThirdPersonCharacter>();
-            playerScript.Drown();//change
+            playerScript.Cut();
         }
     }
 }

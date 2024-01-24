@@ -23,14 +23,19 @@ public class Timer : MonoBehaviour
     private void OnEnable()
     {
         CinematicTracker.OnCinematicFinish += _ => SetRunning(true);
+        ThirdPersonCharacter.OnDeath += IsDead;
     }
 
     private void OnDisable()
     {
         CinematicTracker.OnCinematicFinish -= _ => SetRunning(true);
+        ThirdPersonCharacter.OnDeath -= IsDead;
     }
 
-
+    public void IsDead()
+    {
+        this.isRunning = false;
+    }
     void Update()
     {
         if(isRunning)
