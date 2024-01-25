@@ -16,6 +16,12 @@ public class ButtonController : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void ReloadLevel()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
+    }
+
     public void LoadNextLevel()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
