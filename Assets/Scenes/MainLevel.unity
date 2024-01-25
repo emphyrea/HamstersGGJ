@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4771,7 +4771,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088208714}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09252102, y: 0.00000001765986, z: -0.0000000016409466, w: 0.99571073}
+  m_LocalRotation: {x: 0.09252102, y: -0.000000017659854, z: 0.0000000016409462, w: 0.99571073}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5019,13 +5019,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139850077}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3308836, y: -0, z: -0, w: 0.94367164}
-  m_LocalPosition: {x: 17.51, y: 27.94, z: -16.73}
-  m_LocalScale: {x: 7.63817, y: 0.056026794, z: 14.940477}
+  m_LocalRotation: {x: 0.42079204, y: -0, z: -0, w: 0.9071572}
+  m_LocalPosition: {x: 17.51, y: 28.74, z: -18.71}
+  m_LocalScale: {x: 7.63817, y: 0.056026794, z: 14.627027}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1734046844}
-  m_LocalEulerAnglesHint: {x: 38.645, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 49.769, y: 0, z: 0}
 --- !u!65 &1139850079
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8816,7 +8816,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931017418}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09475383, y: -0.25594878, z: 0.025217852, w: 0.96170473}
+  m_LocalRotation: {x: 0.09475383, y: -0.2559488, z: 0.025217853, w: 0.96170473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9703,6 +9703,7 @@ MonoBehaviour:
   rollSpeed: 40
   rollDuration: 0.2
   rollCooldown: 0.5
+  maxSlopeAngle: 45
   fallThresholdVelocity: 15
   orient: {fileID: 804655269}
   jumpKey: 32

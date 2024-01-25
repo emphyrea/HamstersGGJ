@@ -29,6 +29,12 @@ public class ThirdPersonCharacter : MonoBehaviour
     private Vector3 rollDirection;
     public float rollCooldown = 0.25f;
 
+    [Header("Slope Handling")]
+    public float maxSlopeAngle;
+    private RaycastHit slopeHit;
+    private bool exitingSlope;
+
+
     [SerializeField] float fallThresholdVelocity = 5f;
 
     bool canInput = true;
@@ -159,10 +165,20 @@ public class ThirdPersonCharacter : MonoBehaviour
     {
         canInput = set;
     }
-
+    #region Actions
     private void MovePlayer()
     {
         moveDir = orient.forward * verticalInput + orient.right * horizontalInput;
+
+        //on slope!
+        if(OnSlope() && !exitingSlope)
+        {
+            rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
+            if(rb.velocity.y > 0)
+            {
+                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+            }
+        }
 
         if (isGrounded)
         {
@@ -172,20 +188,36 @@ public class ThirdPersonCharacter : MonoBehaviour
         {
             rb.AddForce(moveDir.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
+
+        //no gravity while on slope
+        rb.useGravity = !OnSlope();
     }
 
     private void SpeedClamper()
     {
-        Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-        if (flatVelocity.magnitude > moveSpeed)
+        //limited speed on slope
+        if(OnSlope() && !exitingSlope)
         {
-            limitedVelocity = flatVelocity.normalized * moveSpeed; //calculate what max velocity WOULD be
-            rb.velocity = new Vector3(limitedVelocity.x, rb.velocity.y, limitedVelocity.z); //apply it
+            if(rb.velocity.magnitude > moveSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * moveSpeed;   
+            }
+        }
+        else //limiting speed on ground or in air
+        {
+            Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+            if (flatVelocity.magnitude > moveSpeed)
+            {
+                limitedVelocity = flatVelocity.normalized * moveSpeed; //calculate what max velocity WOULD be
+                rb.velocity = new Vector3(limitedVelocity.x, rb.velocity.y, limitedVelocity.z); //apply it
+            }
         }
     }
 
     private void Jump()
     {
+        exitingSlope = true;
+
         animator.SetBool("jump", true);
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
@@ -196,6 +228,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     {
         animator.SetBool("jump", false);
         canJump = true;
+        exitingSlope = false;
     }
 
     private void Roll()
@@ -211,6 +244,23 @@ public class ThirdPersonCharacter : MonoBehaviour
         canRoll = true;
     }
 
+    private bool OnSlope()
+    {
+        if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return angle < maxSlopeAngle && angle != 0;
+        }
+
+        return false;
+    }
+
+    private Vector3 GetSlopeMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(moveDir, slopeHit.normal).normalized;
+    }
+
+    #endregion
     private void UpdateAnimation()
     {
         if (isGrounded)
