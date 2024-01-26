@@ -34,7 +34,14 @@ public class WinScreen : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         OnWinDeathReset?.Invoke();
+        StartCoroutine(WaitALil());
 
+    }
+
+    public IEnumerator WaitALil()
+    {
+        yield return new WaitForSeconds(5);
+        Time.timeScale = 0f;
     }
 
     // Update is called once per frame
