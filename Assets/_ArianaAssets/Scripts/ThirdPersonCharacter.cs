@@ -7,6 +7,8 @@ using UnityEngine.Playables;
 
 public class ThirdPersonCharacter : MonoBehaviour
 {
+    [SerializeField] GameObject playerObj;
+
     public float moveSpeed = 7f;
     Vector3 limitedVelocity;
 
@@ -323,6 +325,7 @@ public class ThirdPersonCharacter : MonoBehaviour
 
         if (collision.gameObject.tag == "Food")
         {
+            animator.SetTrigger("win");
             InvokeWin();
         }
     }
@@ -351,6 +354,11 @@ public class ThirdPersonCharacter : MonoBehaviour
     {
         SetCanInput(false);
         OnWinning?.Invoke();
+    }
+
+    public IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2);
     }
 
     public void StopTime() //ANIM EVENT
@@ -406,13 +414,17 @@ public class ThirdPersonCharacter : MonoBehaviour
     public void Explode()
     {
         DeathState = ExplodeDeath;
+        StartCoroutine(Wait());
         InvokeDeath();
+        playerObj.gameObject.SetActive(false);
     }
 
     public void ExplodeDeath()
     {
-        animator.SetTrigger("burnDeath"); //change?
+        //animator.SetTrigger("burnDeath"); //change?
+
         explosionParticle.SetActive(true);
+
     }
 
 

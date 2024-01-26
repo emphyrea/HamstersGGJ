@@ -34,7 +34,6 @@ public class WinScreen : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         OnWinDeathReset?.Invoke();
-        Time.timeScale = 0;
 
     }
 

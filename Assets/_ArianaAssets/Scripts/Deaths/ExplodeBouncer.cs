@@ -10,7 +10,7 @@ public class ExplodeBouncer : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<Rigidbody>().AddForce(transform.up * bounceForce, ForceMode.Impulse);
+            other.GetComponent<Rigidbody>().AddExplosionForce(1f * bounceForce, other.transform.position, 5f);
             ThirdPersonCharacter playerScript = other.GetComponent<ThirdPersonCharacter>();
             playerScript.Explode();
         }
