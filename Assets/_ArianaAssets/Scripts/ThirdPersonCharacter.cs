@@ -67,8 +67,10 @@ public class ThirdPersonCharacter : MonoBehaviour
     public static event Action<string> DeathIcon;
 
     AudioSource audioSource;
+    [SerializeField] List<AudioClip> squeaksAudio;
+    private AudioClip chosenAudioClip;
 
-    [SerializeField]GameObject fireParticle;
+[SerializeField]GameObject fireParticle;
     [SerializeField]GameObject electricityParticle;
     [SerializeField]GameObject bubbleParticle;
     [SerializeField]GameObject bloodParticle;
@@ -357,9 +359,16 @@ public class ThirdPersonCharacter : MonoBehaviour
         SetCanInput(false);
         OnDeath?.Invoke();
         DeathState?.Invoke();
-
+        RandomizeDeathSound();
         audioSource.Play();
         SaveTimesDied();
+    }
+
+    public void RandomizeDeathSound()
+    {
+        int randNum = UnityEngine.Random.Range(0, squeaksAudio.Count);
+        chosenAudioClip = squeaksAudio[randNum];
+        audioSource.clip = chosenAudioClip;
     }
 
     public void InvokeWin()
