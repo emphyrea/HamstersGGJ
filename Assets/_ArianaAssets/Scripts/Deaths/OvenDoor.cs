@@ -60,6 +60,7 @@ public class OvenDoor : MonoBehaviour
         {
             playerInTrigger = false;
             other.transform.parent = null;
+            other.transform.localScale = Vector3.one;
         }
 
     }
