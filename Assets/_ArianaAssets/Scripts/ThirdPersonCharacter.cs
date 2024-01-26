@@ -73,6 +73,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     [SerializeField]GameObject bubbleParticle;
     [SerializeField]GameObject bloodParticle;
     [SerializeField]GameObject explosionParticle;
+    [SerializeField]GameObject iceParticle;
 
     [SerializeField] int deathCount = 0;
     public void SaveTimesDied()
@@ -107,7 +108,6 @@ public class ThirdPersonCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         Time.timeScale = 1f;
         audioSource = GetComponent<AudioSource>();
 
@@ -123,6 +123,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         RandomizeAnimations();
+        hamsterSkinMat.color = Color.white;
     }
 
     private void PlayerInput()
@@ -318,6 +319,13 @@ public class ThirdPersonCharacter : MonoBehaviour
             InvokeDeath();
         }
 
+        if (collision.gameObject.tag == "Ice")
+        {
+            DeathState = FreezeDeath;
+            DeathIcon?.Invoke("frozen");
+            InvokeDeath();
+        }
+
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
         if (collision.gameObject.tag == "Electric")
         {
@@ -381,6 +389,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     {
         animator.SetTrigger("burnDeath");
         fireParticle.SetActive(true);
+        hamsterSkinMat.color = Color.black;
     }
 
     public void ElectricDeath()
@@ -400,6 +409,13 @@ public class ThirdPersonCharacter : MonoBehaviour
     {
         animator.SetTrigger("drownDeath");
         bubbleParticle.SetActive(true);
+    }
+
+    public void FreezeDeath()
+    {
+        animator.SetTrigger("freezeDeath");
+        iceParticle.SetActive(true);
+        hamsterSkinMat.color = Color.cyan;
     }
 
     internal void Cut()

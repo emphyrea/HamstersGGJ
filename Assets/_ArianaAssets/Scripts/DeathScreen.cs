@@ -14,6 +14,7 @@ public class DeathScreen : MonoBehaviour
     [SerializeField] Sprite drownIcon;
     [SerializeField] Sprite ghostIcon;
     [SerializeField] Sprite starveIcon;
+    [SerializeField] Sprite frozenIcon;
 
 
     // Start is called before the first frame update
@@ -44,6 +45,9 @@ public class DeathScreen : MonoBehaviour
             case "starve":
                 deathIcon.sprite = starveIcon;
                 break;
+            case "frozen":
+                deathIcon.sprite = frozenIcon;
+                break;
             default:
                 deathIcon.sprite = ghostIcon;
                 break;
@@ -55,6 +59,7 @@ public class DeathScreen : MonoBehaviour
     private void OnDisable()
     {
         ThirdPersonCharacter.OnDeath -= OnDeathScreen;
+        ThirdPersonCharacter.DeathIcon -= ChooseDeathIcon;
     }
 
     public void OnDeathScreen()

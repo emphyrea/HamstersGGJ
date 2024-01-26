@@ -8,6 +8,8 @@ TagManager:
   - Water
   - Fire
   - Electric
+  - FxTemporaire
+  - Ice
   layers:
   - Default
   - TransparentFX
