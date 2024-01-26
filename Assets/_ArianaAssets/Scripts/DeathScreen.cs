@@ -7,6 +7,15 @@ public class DeathScreen : MonoBehaviour
 {
     [SerializeField] GameObject deathPanel;
 
+    [SerializeField] Image deathIcon;
+
+    [SerializeField] Sprite electricIcon;
+    [SerializeField] Sprite burnIcon;
+    [SerializeField] Sprite drownIcon;
+    [SerializeField] Sprite ghostIcon;
+    [SerializeField] Sprite starveIcon;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +25,31 @@ public class DeathScreen : MonoBehaviour
     private void OnEnable()
     {
         ThirdPersonCharacter.OnDeath += OnDeathScreen;
+        ThirdPersonCharacter.DeathIcon += ChooseDeathIcon;
+    }
+
+    public void ChooseDeathIcon(string choice)
+    {
+        switch(choice)
+        {
+            case "burn":
+                deathIcon.sprite = burnIcon;
+                break;
+            case "electric":
+                deathIcon.sprite = electricIcon;
+                break;
+            case "drown":
+                deathIcon.sprite = drownIcon;
+                break;
+            case "starve":
+                deathIcon.sprite = starveIcon;
+                break;
+            default:
+                deathIcon.sprite = ghostIcon;
+                break;
+        }
+
+
     }
 
     private void OnDisable()

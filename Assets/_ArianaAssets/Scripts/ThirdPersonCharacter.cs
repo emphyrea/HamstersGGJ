@@ -64,6 +64,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     public static event Action OnDeath;
     public static event Action OnWinning;
     public static event Action DeathState;
+    public static event Action<string> DeathIcon;
 
     AudioSource audioSource;
 
@@ -313,6 +314,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         if (collision.gameObject.tag == "Fire")
         {
             DeathState = BurnDeath;
+            DeathIcon?.Invoke("burn");
             InvokeDeath();
         }
 
@@ -320,6 +322,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         if (collision.gameObject.tag == "Electric")
         {
             DeathState = ElectricDeath;
+            DeathIcon?.Invoke("electric");
             InvokeDeath();
         }
 
@@ -346,6 +349,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         SetCanInput(false);
         OnDeath?.Invoke();
         DeathState?.Invoke();
+
         audioSource.Play();
         SaveTimesDied();
     }
@@ -368,6 +372,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     #region Deaths
     public void FallDeath()
     {
+        DeathIcon?.Invoke("fall");
         animator.SetTrigger("fallDeath");
 
     }
@@ -387,6 +392,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     public void Drown()
     {
         DeathState = DrownDeath;
+        DeathIcon?.Invoke("drown");
         InvokeDeath();
     }
 
@@ -399,6 +405,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     internal void Cut()
     {
         DeathState = CutDeath;
+        DeathIcon?.Invoke("ghost");
         InvokeDeath();
     }
 
@@ -415,14 +422,13 @@ public class ThirdPersonCharacter : MonoBehaviour
     {
         DeathState = ExplodeDeath;
         StartCoroutine(Wait());
+        DeathIcon?.Invoke("burn");
         InvokeDeath();
         playerObj.gameObject.SetActive(false);
     }
 
     public void ExplodeDeath()
     {
-        //animator.SetTrigger("burnDeath"); //change?
-
         explosionParticle.SetActive(true);
 
     }
@@ -431,6 +437,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     public void Starve()
     {
         DeathState = StarveDeath;
+        DeathIcon?.Invoke("starve");
         InvokeDeath();
     }
 
