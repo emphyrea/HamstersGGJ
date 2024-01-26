@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.Playables;
 
 public class ThirdPersonCharacter : MonoBehaviour
@@ -96,14 +96,14 @@ public class ThirdPersonCharacter : MonoBehaviour
 
     private void OnEnable()
     {
-       // CinematicTracker.OnCinematicFinish += _ => SetCanInput(true);
+        CinematicTracker.OnCinematicFinish += _ => SetCanInput(true);
         WinScreen.OnWinDeathReset += ResetTimesDied;
         Timer.OnTimeEnd += Starve;
     }
 
     private void OnDisable()
     {
-        //CinematicTracker.OnCinematicFinish -= _ => SetCanInput(true);
+        CinematicTracker.OnCinematicFinish -= _ => SetCanInput(true);
         WinScreen.OnWinDeathReset -= ResetTimesDied;
         Timer.OnTimeEnd -= Starve;
     }
