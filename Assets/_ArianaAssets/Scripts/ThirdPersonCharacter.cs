@@ -76,6 +76,7 @@ public class ThirdPersonCharacter : MonoBehaviour
     [SerializeField]GameObject bloodParticle;
     [SerializeField]GameObject explosionParticle;
     [SerializeField]GameObject iceParticle;
+    [SerializeField]GameObject poisonParticle;
 
     [SerializeField] int deathCount = 0;
     public void SaveTimesDied()
@@ -320,6 +321,12 @@ public class ThirdPersonCharacter : MonoBehaviour
             DeathIcon?.Invoke("burn");
             InvokeDeath();
         }
+        if (collision.gameObject.tag == "Poison")
+        {
+            DeathState = PoisonDeath;
+            DeathIcon?.Invoke("ghost");
+            InvokeDeath();
+        }
 
         if (collision.gameObject.tag == "Ice")
         {
@@ -399,6 +406,14 @@ public class ThirdPersonCharacter : MonoBehaviour
         animator.SetTrigger("burnDeath");
         fireParticle.SetActive(true);
         hamsterSkinMat.color = Color.black;
+    }
+
+
+    public void PoisonDeath()
+    {
+        animator.SetTrigger("poisonDEath");
+        poisonParticle.SetActive(true);
+        hamsterSkinMat.color = Color.green;
     }
 
     public void ElectricDeath()

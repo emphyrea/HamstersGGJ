@@ -10,6 +10,7 @@ TagManager:
   - Electric
   - FxTemporaire
   - Ice
+  - Poison
   layers:
   - Default
   - TransparentFX
