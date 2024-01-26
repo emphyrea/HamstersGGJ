@@ -411,7 +411,7 @@ public class ThirdPersonCharacter : MonoBehaviour
 
     public void PoisonDeath()
     {
-        animator.SetTrigger("poisonDEath");
+        animator.SetTrigger("poisonDeath");
         poisonParticle.SetActive(true);
         hamsterSkinMat.color = Color.green;
     }
