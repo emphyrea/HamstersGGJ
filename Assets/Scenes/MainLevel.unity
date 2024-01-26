@@ -11294,7 +11294,7 @@ GameObject:
   - component: {fileID: 803482653}
   - component: {fileID: 8204995186092510952}
   - component: {fileID: 8204995186092510951}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OvenDoorLow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
