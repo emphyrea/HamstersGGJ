@@ -8,11 +8,14 @@ public class SwingingKnife : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float height = 1f;
 
+
     Vector3 pos;
 
     private void Start()
     {
         pos = transform.position;
+        height = Random.Range(2, 4);
+        speed = Random.Range(2, 6);
     }
     void Update()
     {
@@ -22,6 +25,7 @@ public class SwingingKnife : MonoBehaviour
         //set the object's Y to the new calculated Y
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
