@@ -125,7 +125,7 @@ public class ThirdPersonCharacter : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        //RandomizeAnimations();
+        RandomizeAnimations();
         hamsterSkinMat.color = Color.white;
     }
 
