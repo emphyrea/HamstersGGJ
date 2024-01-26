@@ -3,12 +3,22 @@ guid: ae7b8eed2f597b747b9ba0d387309de4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ShelfMetal_mtl
+    second: {fileID: 2100000, guid: b7fd29a63cf5a0a429c205d4be5f479b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shelf_mtl
+    second: {fileID: 2100000, guid: 669cc933f2c35a845833fccbe98601a5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

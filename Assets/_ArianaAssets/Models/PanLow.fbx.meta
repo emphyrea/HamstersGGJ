@@ -3,12 +3,22 @@ guid: 37ae89d297ab95f4884d2990cb10a6a1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PanBaseLow2
+    second: {fileID: 2100000, guid: 8d4090c37f8fbec4e9d7e6b93f750be2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PanHandleLow1
+    second: {fileID: 2100000, guid: 0064a6080690c324083b309bb2a47f82, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

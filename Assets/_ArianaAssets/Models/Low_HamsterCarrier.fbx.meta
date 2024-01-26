@@ -3,12 +3,37 @@ guid: 210c12888b550b04d8f4548ad16c6c88
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_CarrierHook_01
+    second: {fileID: 2100000, guid: d7fab856c6c559641842b0f3e6091855, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_CarrierHook_02
+    second: {fileID: 2100000, guid: e1e1214184306fa438331e522c288ada, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_CarrierWall_01
+    second: {fileID: 2100000, guid: 2d2e57f6db8dc904e9e953b71a2623e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_CarrierWall_02
+    second: {fileID: 2100000, guid: a13f7fadb9fe1264a94878b0979cbe02, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_Floor
+    second: {fileID: 2100000, guid: fd871494ff6f3244094f33571bb7f928, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

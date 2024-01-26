@@ -3,12 +3,17 @@ guid: 77400e7fe3a0fcd4d9143a4266883f98
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BrocoliLow1
+    second: {fileID: 2100000, guid: 23b4015d3035cff4ba30332effc2dfff, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

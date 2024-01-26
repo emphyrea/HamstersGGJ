@@ -3,12 +3,37 @@ guid: f142c6bed3b99df41877a22eab15531d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlassDoor1
+    second: {fileID: 2100000, guid: 41862bab9473ce944a6a46399c00278a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: KnobLow2
+    second: {fileID: 2100000, guid: bad195bcbe171b64eb64e354877e69b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OvenDoorLow2
+    second: {fileID: 2100000, guid: 76dac460540d008499de3b77323eeba3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OvenGRate
+    second: {fileID: 2100000, guid: 10df48925072ddd4d91f49a3ba35254e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ToasterOvenLow2
+    second: {fileID: 2100000, guid: 897ec876fe85aca4f9ea2246765fae38, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

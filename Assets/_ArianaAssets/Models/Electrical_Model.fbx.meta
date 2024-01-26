@@ -3,12 +3,17 @@ guid: fc1f42b45e600e1458687f35f6e624b9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Electrical_MAT
+    second: {fileID: 2100000, guid: 1d705f99c0afcc6428769f0ee1bc6bc2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

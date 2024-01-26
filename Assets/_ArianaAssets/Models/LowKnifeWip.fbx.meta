@@ -3,12 +3,17 @@ guid: 38145331b5cb5b54fbecdc9ddfb5b7ca
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: KnifeLow1
+    second: {fileID: 2100000, guid: 6dd49d4831fbc914293321e5acbdcd87, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

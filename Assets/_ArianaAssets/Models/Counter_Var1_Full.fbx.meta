@@ -3,12 +3,47 @@ guid: 877ad3526de656d4cb9777cf0b97c98c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CabinetBase
+    second: {fileID: 2100000, guid: d381083e385c55f4ea5d38f23d81efe4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CabinetDoor_Handle_mtl
+    second: {fileID: 2100000, guid: 013f267f09ad84145b19ae95314d1a55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CabinetDoor_mtl
+    second: {fileID: 2100000, guid: e95666696f6c40941a4d6a27394a770e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CabinetWood
+    second: {fileID: 2100000, guid: 8050f1944ef58ed4e86fc8123555e6e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hinge_mtl
+    second: {fileID: 2100000, guid: 5d11232d5376a1e42b4d7590fce85e1f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skrew_mtl
+    second: {fileID: 2100000, guid: dd6bdcde9d6420e4ab6c6fc238e3b634, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SmallCabinet
+    second: {fileID: 2100000, guid: 2316b0202c3dc44408337b0e0b499396, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

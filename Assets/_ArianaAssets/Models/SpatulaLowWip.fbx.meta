@@ -3,12 +3,17 @@ guid: 52238e7c42f6ce049af8a70903fb45bc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpatulaWip
+    second: {fileID: 2100000, guid: 534ef4a3c4279ce4ab559cd640978a66, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

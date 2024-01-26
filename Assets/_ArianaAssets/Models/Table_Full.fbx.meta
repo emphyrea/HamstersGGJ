@@ -3,12 +3,22 @@ guid: ccffd8d92415979458d4b2fd69a478b5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TableMetal
+    second: {fileID: 2100000, guid: 30278d980a32460479f3f59e0c403353, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TableTop1
+    second: {fileID: 2100000, guid: 51bf0af84d8b482439d48a76f043b1a6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

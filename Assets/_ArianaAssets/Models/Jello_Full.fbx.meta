@@ -3,12 +3,22 @@ guid: ebc95b3c39984294789c5e8d77569db5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jello
+    second: {fileID: 2100000, guid: 6b6a5b82a8132ce4d92983a24fa49744, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: strawberry
+    second: {fileID: 2100000, guid: 0dc6839a32fdc7b409e0dea429ce24ca, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

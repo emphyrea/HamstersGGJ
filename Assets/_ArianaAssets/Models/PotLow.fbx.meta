@@ -3,12 +3,27 @@ guid: c86d862a9577a134a99dbfe0581c49cc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoLow
+    second: {fileID: 2100000, guid: 3b2e4e2a64afd6b42ae4da0decadfa7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PotBaseLow1
+    second: {fileID: 2100000, guid: a9648e1582e0c2c459ad45cabae0c439, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PotDirt
+    second: {fileID: 2100000, guid: db896257644ca6d4680fd3dc09cd1ec6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

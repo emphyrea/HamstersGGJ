@@ -3,12 +3,17 @@ guid: 24c3d33af70d89c4ebd0196b5ee9b257
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpoomLowWip
+    second: {fileID: 2100000, guid: 8204043de0314fe4f80bb822d4a5fc1d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

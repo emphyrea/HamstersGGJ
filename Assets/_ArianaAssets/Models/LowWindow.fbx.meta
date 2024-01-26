@@ -3,12 +3,67 @@ guid: 9e39a44c42a7edc4784f1e7ce1a88825
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BottomLeftWindow2
+    second: {fileID: 2100000, guid: a3a41f0317e7e414b8762413ff29600d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BottomRightWindow3
+    second: {fileID: 2100000, guid: a29ba0fe960b7eb438ae69b80dc7f597, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass_Bottom2
+    second: {fileID: 2100000, guid: 9f311a8544a1727419e2b24f30646f25, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass_Top2
+    second: {fileID: 2100000, guid: ef35131ad4fece743bb5351bcf245cf9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LeftWindowSLider
+    second: {fileID: 2100000, guid: 47ee7f9fe9707404c935186d9edaf1c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RightWindowSlider1
+    second: {fileID: 2100000, guid: 4b838329718657e40bda1e0a6fef5a35, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TopLeftGlassDecoration2
+    second: {fileID: 2100000, guid: 399b9b530f400a148a9db6e4f68e0ef0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TopLeftWindow3
+    second: {fileID: 2100000, guid: 01a0f98d512a2444fbb60acfed679500, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TopRightWindow1
+    second: {fileID: 2100000, guid: bc961bcd53676c248a2e0bea8cea14c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TopRightWindowDecoration2
+    second: {fileID: 2100000, guid: 84992747177df934fb8daa53b6bb7e3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WindowFrame2
+    second: {fileID: 2100000, guid: 18cc43670d107ee4eaeb097abb3350f9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

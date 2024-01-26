@@ -3,12 +3,22 @@ guid: 0f2c8ac64246e2d40b89dcd9e7bfe10a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_Metal
+    second: {fileID: 2100000, guid: c20bb02107170e74faa8d4f0609b9777, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_PotLid
+    second: {fileID: 2100000, guid: 5353e9183743630438edf9011e18fd6e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
