@@ -3,12 +3,17 @@ guid: 821598a657720de4693c3438567eed81
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FrozenVeg_mtl
+    second: {fileID: 2100000, guid: 4fa8c53b20c2e494994e9cfb48dec684, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

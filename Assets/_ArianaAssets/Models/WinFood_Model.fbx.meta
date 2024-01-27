@@ -3,12 +3,32 @@ guid: 409af933f89a3d0408bba282c52e83ad
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bowll_MAT
+    second: {fileID: 2100000, guid: 943e79ad8c9290343afa5ffbdbabded4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corn_MAT
+    second: {fileID: 2100000, guid: 3070b4fd70c1e9d4792035891359c2a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kibble_MAT
+    second: {fileID: 2100000, guid: edba7c8364b7acb4aa6d22c10b8137f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sunflowerseed_MAT
+    second: {fileID: 2100000, guid: fc0b537965c024e418047996829aed1c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

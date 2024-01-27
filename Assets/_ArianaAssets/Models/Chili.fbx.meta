@@ -3,12 +3,22 @@ guid: 787c534a9ac17ca4bb296129df8b2d1e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChiliGreen
+    second: {fileID: 2100000, guid: 41c8e21ded72c604da25fc07b9aa2af3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChiliRed
+    second: {fileID: 2100000, guid: 8b8893860f42b7e47b31100c8afb00bb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

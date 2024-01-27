@@ -3,12 +3,22 @@ guid: aafdb06fbacfdf5468f3caaec8cadd55
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_CanisterBody
+    second: {fileID: 2100000, guid: a4b77b40d47a9d64999d8da2e2548e38, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_CanisterLid
+    second: {fileID: 2100000, guid: 7b1a85d366e21b14396d0a7ddce5eb5f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

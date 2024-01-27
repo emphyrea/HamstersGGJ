@@ -25,7 +25,8 @@ public class ButtonController : MonoBehaviour
     public void LoadNextLevel()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentScene++);
+        currentScene++;
+        SceneManager.LoadScene(currentScene);
     }
 
 }
